@@ -10,6 +10,7 @@ function saveData() {
   localStorage.setItem('data', JSON.stringify(allBook));
 }
 
+// DISPLAY METHOD
 function displayBooks() {
   addedBookList.innerHTML = '';
   allBook.forEach((book, index) => {
@@ -25,6 +26,7 @@ function displayBooks() {
   });
 }
 
+// ADD METHOD
 function addBook() {
   if (title.value !== '' && author.value !== '') {
     allBook.push({ Title: title.value, Author: author.value });
@@ -35,6 +37,7 @@ function addBook() {
   }
 }
 
+// REMOVE METHOD
 function removeBook(index) {
   allBook.splice(index, 1);
   saveData();
@@ -56,6 +59,7 @@ addedBookList.addEventListener('click', (event) => {
   }
 });
 
+// METHOD FOR RETRIEVE DATA
 function retrieveData() {
   const savedData = localStorage.getItem('data');
   if (savedData) {
