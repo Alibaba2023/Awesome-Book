@@ -1,71 +1,79 @@
+class Library {
+  constructor() {
+    this.allBook = [];
+    this.storage = 'data';
+  }
+
+  // ADD METHOD
+  addBook(title, author) {
+    if (title.value !== '' && author.value !== '') {
+      this.allBook.push({ title: title.value, author: author.value });
+      localStorage.setItem(this.storage, JSON.stringify(this.allBook));
+      title.value = '';
+      author.value = '';
+    }
+  }
+
+  // REMOVE METHOD
+  removeBook(index) {
+    this.allBook.splice(index, 1);
+    localStorage.setItem(this.storage, JSON.stringify(this.allBook));
+  }
+}
+
+const libraryBook = new Library();
+
 const title = document.querySelector('.book-title');
 const author = document.querySelector('.book-author');
 const addBtn = document.querySelector('.add-btn');
 const form = document.querySelector('.form_container');
 const addedBookList = document.querySelector('.added-book-list');
 
-let allBook = [];
-
-function saveData() {
-  localStorage.setItem('data', JSON.stringify(allBook));
-}
-
 // DISPLAY METHOD
 function displayBooks() {
   addedBookList.innerHTML = '';
-  allBook.forEach((book, index) => {
+  libraryBook.allBook.forEach((book, index) => {
     const bookItem = document.createElement('li');
     bookItem.innerHTML = `
       <div class="book-item">
-        <p>Title: ${book.Title}</p>
-        <p>Author: ${book.Author}</p>
+        <p>"${book.title}" By "${book.author}"</p>
         <button class="remove-btn" data-index="${index}">Remove</button>
-        <hr>
       </div>`;
     addedBookList.appendChild(bookItem);
   });
 }
+displayBooks();
 
-// ADD METHOD
-function addBook() {
-  if (title.value !== '' && author.value !== '') {
-    allBook.push({ Title: title.value, Author: author.value });
-    title.value = '';
-    author.value = '';
-    saveData();
-    displayBooks();
-  }
-}
-
-// REMOVE METHOD
-function removeBook(index) {
-  allBook.splice(index, 1);
-  saveData();
+addBtn.addEventListener('click', () => {
+  libraryBook.addBook(title, author);
   displayBooks();
-}
-
-addBtn.addEventListener('click', addBook);
+});
 
 form.addEventListener('submit', (event) => {
   event.preventDefault();
-  addBook();
+  libraryBook.addBook(title, author);
+  displayBooks();
+  localStorage.setItem(Library.storage, JSON.stringify(libraryBook.allBook));
   event.target.reset();
 });
 
 addedBookList.addEventListener('click', (event) => {
   if (event.target.classList.contains('remove-btn')) {
     const { index } = event.target.dataset;
-    removeBook(index);
+    libraryBook.removeBook(index);
+    displayBooks();
   }
 });
 
 // METHOD FOR RETRIEVE DATA
 function retrieveData() {
-  const savedData = localStorage.getItem('data');
+  const savedData = localStorage.getItem(libraryBook.storage);
   if (savedData) {
-    allBook = JSON.parse(savedData);
+    libraryBook.allBook = JSON.parse(savedData);
   }
   displayBooks();
 }
-
+const datePage = document.querySelector('.date-page');
+const newdate = new Date();
+datePage.textContent = newdate.toDateString();
 window.addEventListener('load', retrieveData);
