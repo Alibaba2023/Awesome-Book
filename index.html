@@ -10,19 +10,41 @@
 </head>
 
 <body>
-  <div class="container">
-    <h1>Awesome Book</h1>
-    <div class="added-books-container">
-      <ul class="added-book-list">
-
+  <header>
+    <nav class="nav-container">
+      <div>Awesome Book</div>
+      <ul class="nav-links">
+        <li>List</li>
+        <li>Add</li>
+        <li>Contact</li>
       </ul>
+    </nav>
+  </header>
+  <main>
+    <div class="add-container">
+      <div class="container">
+
+        <h1>Awesome Book</h1>
+        <div class="added-books-container">
+          <ul class="added-book-list">
+
+          </ul>
+        </div>
+        <form class="form_container">
+          <input class="book-title" type="text" placeholder="Title of the book" required>
+          <input class="book-author" type="text" placeholder="Author of the book" required>
+          <button type="submit" class="add-btn">Add Book</button>
+        </form>
+      </div>
     </div>
-    <form class="form_container">
-      <input class="book-title" type="text" placeholder="Title of the book" required>
-      <input class="book-author" type="text" placeholder="Author of the book" required>
-      <button type="submit" class="add-btn">Add Book</button>
-    </form>
-  </div>
+  </main>
+  <footer>
+    <div class="footer">
+      <div class="text-white">Kabul, Afghanistan</div>
+      <div class="text-white date-page"> </div>
+      <div class="text-white">All &copy rights resereved</div>
+    </div>
+  </footer>
   <script src="./main.js"></script>
 </body>
 
