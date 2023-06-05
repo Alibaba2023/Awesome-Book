@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="./index.css">
   <title>Awesome Book</title>
 </head>
 
@@ -14,38 +14,50 @@
     <nav class="nav-container">
       <div>Awesome Book</div>
       <ul class="nav-links">
-        <li>List</li>
-        <li>Add</li>
-        <li>Contact</li>
+        <li class="a-list">List</li>
+        <li class="a-add">Add</li>
+        <li class="a-contact">Contact</li>
       </ul>
     </nav>
   </header>
   <main>
-    <div class="add-container">
+    <div class="container">
+      <div class="date-page"> </div>
+      <h1>Awesome Book</h1>
+    </div>
+    <div class="center-container">
       <div class="container">
-
-        <h1>Awesome Book</h1>
-        <div class="added-books-container">
+        <div class="added-books-container add-container">
+          <h2>Book lists</h2>
           <ul class="added-book-list">
 
           </ul>
         </div>
-        <form class="form_container">
-          <input class="book-title" type="text" placeholder="Title of the book" required>
-          <input class="book-author" type="text" placeholder="Author of the book" required>
-          <button type="submit" class="add-btn">Add Book</button>
-        </form>
+        <div class="form-container display-none">
+          <h2>Add Book</h2>
+          <form class="form_container">
+            <input class="book-title" type="text" placeholder="Title of the book" required>
+            <input class="book-author" type="text" placeholder="Author of the book" required>
+            <button type="submit" class="add-btn">Add Book</button>
+          </form>
+        </div>
+        <div class="contact-container display-none">
+          <h2>Contact Information</h2>
+          <p>Do you have any questions or you just want to say hello? you can reach out to us!</p>
+          <p><strong>Email</strong>ali7090370@gmail.com</p>
+          <p><strong>Phone</strong>+93709037057</p>
+          <p><strong>Address</strong>Dasht-e-Barchi, 13, Kabul, Afghanistan</p>
+        </div>
       </div>
     </div>
   </main>
   <footer>
     <div class="footer">
       <div class="text-white">Kabul, Afghanistan</div>
-      <div class="text-white date-page"> </div>
       <div class="text-white">All &copy rights resereved</div>
     </div>
   </footer>
-  <script src="./main.js"></script>
+  <script src="./index.js"></script>
 </body>
 
 </html>
