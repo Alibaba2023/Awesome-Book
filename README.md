@@ -34,7 +34,7 @@
 
 # 📖 [Awesome Book] <a name="about-project"></a>
 
-**[Awesome Book]** is a javaScript project.
+**[Awesome Book]** is a javaScript project that allow users to add and remove books.
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -53,11 +53,11 @@
 
 ### Key Features <a name="key-features"></a>
 
-<!-- -  **[Home page]**
--  **[About Page]**
--  **[Menu Section]**
+-  **[list page]**
+-  **[Add Page]**
+-  **[Contact Section]**
 -  **[Responsive]**
--  **[Good look and feel]** -->
+-  **[Good look and feel]**
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- LIVE DEMO -->
